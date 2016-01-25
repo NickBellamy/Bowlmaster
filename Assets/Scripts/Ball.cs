@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ball : MonoBehaviour {
+public class Ball : MonoBehaviour
+{
     public Vector3 launchVelocity;
 
     private AudioSource audioSource;
     private Rigidbody rigidBody;
 
-
-	void Start () {
+	void Start()
+    {
         audioSource = GetComponent<AudioSource>();
         rigidBody = GetComponent<Rigidbody>();
 
