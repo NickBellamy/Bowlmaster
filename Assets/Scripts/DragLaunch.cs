@@ -33,4 +33,14 @@ public class DragLaunch : MonoBehaviour
 
         ball.Launch(launchVector);
     }
+
+    public void MoveStart(float nudgeX)
+    {
+        if (!ball.inPlay)
+        {
+            Vector3 clampVector = ball.transform.position + new Vector3(nudgeX, 0, 0);
+            clampVector.x = Mathf.Clamp(clampVector.x, -0.525f, 0.525f);
+            ball.transform.position = clampVector;
+        }
+    }
 }
