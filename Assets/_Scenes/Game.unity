@@ -329,7 +329,6 @@ GameObject:
   - 20: {fileID: 929262921}
   - 124: {fileID: 929262920}
   - 92: {fileID: 929262919}
-  - 81: {fileID: 929262918}
   m_Layer: 0
   m_Name: Top Camera
   m_TagString: Untagged
@@ -337,13 +336,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &929262918
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 929262917}
-  m_Enabled: 1
 --- !u!92 &929262919
 Behaviour:
   m_ObjectHideFlags: 0
