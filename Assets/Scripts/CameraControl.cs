@@ -14,7 +14,7 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.z <= 18.29)
+        if (ball.transform.position.z <= 18.29)
         {
             transform.position = ball.transform.position + offset;
         }

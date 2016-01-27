@@ -5,8 +5,15 @@ using System.Collections;
 public class PinSetter : MonoBehaviour 
 {
     public Text standingDisplay;
+
+    private Ball ball;
+
+    void Start()
+    {
+        ball = FindObjectOfType<Ball>();
+    }
 	
-	void Update () 
+	void Update() 
 	{
         standingDisplay.text = CountStanding().ToString();
 	}
@@ -37,6 +44,7 @@ public class PinSetter : MonoBehaviour
     void SetScore()
     {
         standingDisplay.color = Color.green;
+        ball.Reset();
     }
 
     // Destroy pins when they leave the PinSetter box
