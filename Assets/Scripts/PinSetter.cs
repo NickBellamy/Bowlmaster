@@ -5,8 +5,6 @@ using System.Collections;
 public class PinSetter : MonoBehaviour 
 {
     public Text standingDisplay;
-
-    private bool ballEnteredBox = false;
 	
 	void Update () 
 	{
@@ -16,8 +14,6 @@ public class PinSetter : MonoBehaviour
     private int CountStanding()
     {
         int pinCount = 0;
-        // Currently being called every frame from update.
-        // Move FindObjectsOfType to be only called once in future.
         foreach(Pin pin in FindObjectsOfType<Pin>())
         {
             if (pin.IsStanding())
@@ -28,15 +24,22 @@ public class PinSetter : MonoBehaviour
         return pinCount;
     }
 
+    // When ball enters Pinsetter, update the UI and invoke SetScore
     void OnTriggerEnter(Collider col)
     {
         if (col.GetComponent<Ball>())
         {
             standingDisplay.color = Color.red;
-            ballEnteredBox = true;
+            Invoke("SetScore", 3f);
         }
     }
 
+    void SetScore()
+    {
+        standingDisplay.color = Color.green;
+    }
+
+    // Destroy pins when they leave the PinSetter box
     void OnTriggerExit(Collider col)
     {
         if (col.GetComponent<Pin>())
