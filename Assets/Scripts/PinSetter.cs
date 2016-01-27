@@ -5,6 +5,8 @@ using System.Collections;
 public class PinSetter : MonoBehaviour 
 {
     public Text standingDisplay;
+
+    private bool ballEnteredBox = false;
 	
 	void Update () 
 	{
@@ -24,5 +26,22 @@ public class PinSetter : MonoBehaviour
             }
         }
         return pinCount;
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.GetComponent<Ball>())
+        {
+            standingDisplay.color = Color.red;
+            ballEnteredBox = true;
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.GetComponent<Pin>())
+        {
+            Destroy(col.gameObject);
+        }
     }
 }
