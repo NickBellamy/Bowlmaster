@@ -6,6 +6,7 @@ public class PinSetter : MonoBehaviour
 {
     public Text standingDisplay;
     public float distanceToRaise = 0.2f;
+    public GameObject pinPrefab;
 
     private Ball ball;
     private Pin[] pins;
@@ -28,6 +29,7 @@ public class PinSetter : MonoBehaviour
         {
             if (pin.IsStanding())
             {
+                pin.GetComponent<Rigidbody>().useGravity = false;
                 pin.transform.position += new Vector3(0, distanceToRaise, 0);
             }
         }
@@ -41,6 +43,7 @@ public class PinSetter : MonoBehaviour
             if (pin.IsStanding())
             {
                 pin.transform.position -= new Vector3(0, distanceToRaise, 0);
+                pin.GetComponent<Rigidbody>().useGravity = true;
             }
         }
     }
@@ -48,6 +51,7 @@ public class PinSetter : MonoBehaviour
     public void RenewPins()
     {
         Debug.Log("Renewing Pins");
+        Instantiate(pinPrefab, new Vector3(0, 0, 18.29f), Quaternion.identity);
     }
 
     private int CountStanding()

@@ -316,7 +316,7 @@ Transform:
   m_GameObject: {fileID: 244992391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.16666666, z: -0.46692336}
-  m_LocalScale: {x: 0.8333333, y: 0.25, z: 0.03846154}
+  m_LocalScale: {x: 1, y: 0.25, z: 0.03}
   m_Children: []
   m_Father: {fileID: 1053822637}
   m_RootOrder: 0
@@ -1039,6 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standingDisplay: {fileID: 904869877}
   distanceToRaise: 0.4
+  pinPrefab: {fileID: 152848, guid: d3226a920ae616a4f95af6f3c07fa561, type: 2}
 --- !u!95 &1053822641
 Animator:
   serializedVersion: 3
