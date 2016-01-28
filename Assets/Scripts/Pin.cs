@@ -4,6 +4,7 @@ using System.Collections;
 public class Pin : MonoBehaviour
 {
     public float standingThreshold = 10f;
+    public float distanceToRaise = 0.4f;
 
     public bool IsStanding()
     {
@@ -15,5 +16,20 @@ public class Pin : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void RaiseIfStanding()
+    {
+        if (IsStanding())
+        {
+            GetComponent<Rigidbody>().useGravity = false;
+            transform.Translate(Vector3.up * distanceToRaise);
+        }
+    }
+
+    public void Lower()
+    {
+        transform.Translate(Vector3.down * distanceToRaise);
+        GetComponent<Rigidbody>().useGravity = true;
     }
 }

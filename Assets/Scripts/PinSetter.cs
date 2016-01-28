@@ -6,7 +6,6 @@ public class PinSetter : MonoBehaviour
 {
     public Text standingDisplay;
     public float distanceToRaise = 0.2f;
-    public GameObject pinPrefab;
 
     private Ball ball;
     private Pin[] pins;
@@ -14,7 +13,6 @@ public class PinSetter : MonoBehaviour
     void Start()
     {
         ball = FindObjectOfType<Ball>();
-        pins = FindObjectsOfType<Pin>();
     }
 	
 	void Update() 
@@ -25,33 +23,24 @@ public class PinSetter : MonoBehaviour
     public void RaisePins()
     {
         Debug.Log("Raising Pins");
-        foreach(Pin pin in pins)
+        foreach(Pin pin in FindObjectsOfType<Pin>())
         {
-            if (pin.IsStanding())
-            {
-                pin.GetComponent<Rigidbody>().useGravity = false;
-                pin.transform.position += new Vector3(0, distanceToRaise, 0);
-            }
+            pin.RaiseIfStanding();
         }
     }
 
     public void LowerPins()
     {
         Debug.Log("Lowering Pins");
-        foreach (Pin pin in pins)
+        foreach (Pin pin in FindObjectsOfType<Pin>())
         {
-            if (pin.IsStanding())
-            {
-                pin.transform.position -= new Vector3(0, distanceToRaise, 0);
-                pin.GetComponent<Rigidbody>().useGravity = true;
-            }
+            pin.Lower();
         }
     }
 
     public void RenewPins()
     {
         Debug.Log("Renewing Pins");
-        Instantiate(pinPrefab, new Vector3(0, 0, 18.29f), Quaternion.identity);
     }
 
     private int CountStanding()
