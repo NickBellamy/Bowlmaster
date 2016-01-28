@@ -5,18 +5,50 @@ using System.Collections;
 public class PinSetter : MonoBehaviour 
 {
     public Text standingDisplay;
+    public float distanceToRaise = 0.2f;
 
     private Ball ball;
+    private Pin[] pins;
 
     void Start()
     {
         ball = FindObjectOfType<Ball>();
+        pins = FindObjectsOfType<Pin>();
     }
 	
 	void Update() 
 	{
         standingDisplay.text = CountStanding().ToString();
 	}
+
+    public void RaisePins()
+    {
+        Debug.Log("Raising Pins");
+        foreach(Pin pin in pins)
+        {
+            if (pin.IsStanding())
+            {
+                pin.transform.position += new Vector3(0, distanceToRaise, 0);
+            }
+        }
+    }
+
+    public void LowerPins()
+    {
+        Debug.Log("Lowering Pins");
+        foreach (Pin pin in pins)
+        {
+            if (pin.IsStanding())
+            {
+                pin.transform.position -= new Vector3(0, distanceToRaise, 0);
+            }
+        }
+    }
+
+    public void RenewPins()
+    {
+        Debug.Log("Renewing Pins");
+    }
 
     private int CountStanding()
     {
