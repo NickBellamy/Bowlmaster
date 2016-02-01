@@ -145,7 +145,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!1 &163867867
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +490,7 @@ RectTransform:
   - {fileID: 1042968291}
   - {fileID: 304123014}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -800,7 +800,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &993493658
 Prefab:
   m_ObjectHideFlags: 0
@@ -973,8 +973,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1651624185}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!1 &1053822636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1006,7 @@ Transform:
   m_Children:
   - {fileID: 244992395}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!65 &1053822638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1332,7 +1332,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1277722031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,8 +1412,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1.05, y: 0.01, z: 20}
-  m_Children:
-  - {fileID: 1984396398}
+  m_Children: []
   m_Father: {fileID: 1651624185}
   m_RootOrder: 0
 --- !u!1 &1638007098
@@ -1563,9 +1562,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1429342075}
-  - {fileID: 1050262394}
+  - {fileID: 1984396398}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &1705838674
 Prefab:
   m_ObjectHideFlags: 0
@@ -1903,7 +1902,7 @@ GameObject:
   - 4: {fileID: 1984396398}
   - 65: {fileID: 1984396399}
   m_Layer: 0
-  m_Name: Collider
+  m_Name: Floor Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1916,11 +1915,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1984396397}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -49.5, z: 0}
-  m_LocalScale: {x: 1, y: 100, z: 1}
+  m_LocalPosition: {x: 0, y: -0.49499997, z: 10}
+  m_LocalScale: {x: 1.05, y: 1, z: 20}
   m_Children: []
-  m_Father: {fileID: 1429342075}
-  m_RootOrder: 0
+  m_Father: {fileID: 1651624185}
+  m_RootOrder: 1
 --- !u!65 &1984396399
 BoxCollider:
   m_ObjectHideFlags: 0
