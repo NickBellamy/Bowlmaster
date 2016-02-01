@@ -1258,6 +1258,7 @@ GameObject:
   - 124: {fileID: 1277722027}
   - 81: {fileID: 1277722026}
   - 114: {fileID: 1277722031}
+  - 45: {fileID: 1277722032}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1344,6 +1345,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ball: {fileID: 724181116}
+--- !u!45 &1277722032
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1277722025}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 36ebb1f81aa054bd49704f3d17f62c4d, type: 2}
 --- !u!1 &1429342071
 GameObject:
   m_ObjectHideFlags: 0
