@@ -1039,7 +1039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   standingDisplay: {fileID: 904869877}
   distanceToRaise: 0.4
-  pinPrefab: {fileID: 152848, guid: d3226a920ae616a4f95af6f3c07fa561, type: 2}
+  pinSet: {fileID: 152848, guid: d3226a920ae616a4f95af6f3c07fa561, type: 2}
 --- !u!95 &1053822641
 Animator:
   serializedVersion: 3

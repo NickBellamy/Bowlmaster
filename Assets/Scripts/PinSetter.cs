@@ -6,13 +6,18 @@ public class PinSetter : MonoBehaviour
 {
     public Text standingDisplay;
     public float distanceToRaise = 0.2f;
+    public GameObject pinSet;
 
     private Ball ball;
-    private Pin[] pins;
 
     void Start()
     {
         ball = FindObjectOfType<Ball>();
+
+        foreach (Pin pin in FindObjectsOfType<Pin>())
+        {
+            pin.GetComponent<Rigidbody>().useGravity = true;
+        }
     }
 	
 	void Update() 
@@ -41,6 +46,7 @@ public class PinSetter : MonoBehaviour
     public void RenewPins()
     {
         Debug.Log("Renewing Pins");
+        Instantiate(pinSet, new Vector3(0, distanceToRaise, 18.29f), Quaternion.identity);
     }
 
     private int CountStanding()
