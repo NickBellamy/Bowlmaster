@@ -5,6 +5,12 @@ public class Pin : MonoBehaviour
 {
     public float standingThreshold = 10f;
     public float distanceToRaise = 0.4f;
+    public PinSetter pinSetter;
+
+    void Start()
+    {
+        pinSetter = FindObjectOfType<PinSetter>();
+    }
 
     public bool IsStanding()
     {
@@ -29,7 +35,7 @@ public class Pin : MonoBehaviour
 
     public void Lower()
     {
-        transform.Translate(Vector3.down * distanceToRaise);
+        transform.Translate(Vector3.down * pinSetter.distanceToRaise);
         GetComponent<Rigidbody>().useGravity = true;
     }
 }

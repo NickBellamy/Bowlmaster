@@ -3,7 +3,7 @@ using System.Collections;
 
 [RequireComponent(typeof(Ball))]
 
-public class DragLaunch : MonoBehaviour
+public class BallDragLaunch : MonoBehaviour
 {
     private Ball ball;
     private Vector3 startPos, endPos;

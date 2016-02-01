@@ -5,7 +5,7 @@ using System.Collections;
 public class PinSetter : MonoBehaviour 
 {
     public Text standingDisplay;
-    public float distanceToRaise = 0.2f;
+    public float distanceToRaise = 0.4f;
     public GameObject pinSet;
 
     private Ball ball;
@@ -76,14 +76,5 @@ public class PinSetter : MonoBehaviour
     {
         standingDisplay.color = Color.green;
         ball.Reset();
-    }
-
-    // Destroy pins when they leave the PinSetter box
-    void OnTriggerExit(Collider col)
-    {
-        if (col.GetComponent<Pin>())
-        {
-            Destroy(col.gameObject);
-        }
     }
 }
