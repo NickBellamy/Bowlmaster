@@ -5,17 +5,39 @@ public class ActionMaster
 {
     public enum Action {Tidy, Reset, EndTurn, EndGame};
 
+    private int bowl = 1;
+    private int lastBallScore;
+
 	public Action Bowl(int pins)
     {
-        if (pins < 0 || pins > 10)
+        // Handles the last 3 balls
+        if (bowl >= 20 || (bowl == 19 && pins == 10))
         {
-            throw new UnityException("Invalid pin count");
-        }
-        if (pins == 10)
-        {
-            return Action.EndTurn;
+            if (lastBallScore + pins != 10 || bowl == 21)
+            {
+                return Action.EndGame;
+            }
+
+            if (bowl == 19)
+            {
+                lastBallScore = pins;
+            }
+
+            bowl++;
+            return Action.Reset;
         }
 
-        throw new UnityException("Not sure which action to return!");
+        // If first bowl of frame and not a strike
+        if (bowl % 2 != 0 && pins != 10)
+        {
+            lastBallScore = pins;
+            bowl++;
+            return Action.Tidy;
+        }
+
+        // Second bowl of frame or strike
+        lastBallScore = 0;
+        bowl += (bowl % 2) + 1;
+        return Action.EndTurn;    
     }
 }
