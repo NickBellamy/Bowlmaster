@@ -10,20 +10,22 @@ public class ActionMaster
 
 	public Action Bowl(int pins)
     {
-        // Handles the last 3 balls
+        // Handles bowl 20, 21, and 19 if 19 is a strike
         if (bowl >= 20 || (bowl == 19 && pins == 10))
         {
-            if (lastBallScore + pins != 10 || bowl == 21)
+            if (lastBallScore + pins < 10 || bowl == 21)
             {
                 return Action.EndGame;
             }
 
-            if (bowl == 19)
+            bowl++;
+
+            if (lastBallScore == 10 && pins != 10)
             {
-                lastBallScore = pins;
+                return Action.Tidy;
             }
 
-            bowl++;
+            lastBallScore = pins;
             return Action.Reset;
         }
 

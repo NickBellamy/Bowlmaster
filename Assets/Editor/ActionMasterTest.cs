@@ -96,25 +96,77 @@ public class ActionMasterTest
         actionMaster.Bowl(7);
         Assert.AreEqual(reset, actionMaster.Bowl(10));
     }
-    
+
     [Test]
-    public void T10_StrikeFrame10ThenGutterBallReturnsReset()
+    public void T10_StrikeFrame10ThenGutterBallReturnsTidy()
     {
-        for (int i = 1; i <= 10; i++)
+        for (int i = 1; i <= 18; i++)
         {
-            actionMaster.Bowl(10);
+            actionMaster.Bowl(1);
         }
-        Assert.AreEqual(reset, actionMaster.Bowl(0));
+        actionMaster.Bowl(10);
+        Assert.AreEqual(tidy, actionMaster.Bowl(0));
     }
 
     [Test]
     public void T11_TestGame()
     {
-        int[] rolls = { 8, 2, 7, 3, 3, 4, 10, 2, 8, 10, 10, 8, 0, 10, 8, 2};
-        foreach(int roll in rolls)
+        int[] rolls = { 8, 2, 7, 3, 3, 4, 10, 2, 8, 10, 10, 8, 0, 10, 8, 2 };
+        foreach (int roll in rolls)
         {
             actionMaster.Bowl(roll);
         }
         Assert.AreEqual(endGame, actionMaster.Bowl(9));
+    }
+
+    [Test]
+    public void T12_PerfectGame()
+    {
+        for (int i = 1; i <= 11; i++)
+        {
+            actionMaster.Bowl(10);
+        }
+        Assert.AreEqual(endGame, actionMaster.Bowl(10));
+    }
+    [Test]
+    public void T13_StrikeLastFrameThenKnockOver5PinsReturnTidy()
+    {
+        for (int i = 1; i <= 18; i++)
+        {
+            actionMaster.Bowl(1);
+        }
+        actionMaster.Bowl(10);
+        Assert.AreEqual(tidy, actionMaster.Bowl(5));
+    }
+    [Test]
+    public void T14_ConsecutiveGutterballsInFrame10ReturnEndGame()
+    {
+        for (int i = 1; i <= 18; i++)
+        {
+            actionMaster.Bowl(1);
+        }
+        actionMaster.Bowl(0);
+        Assert.AreEqual(endGame, actionMaster.Bowl(0));
+    }
+    [Test]
+    public void T15_DoubleStrikesInLastFrameReturnReset()
+    {
+        for (int i = 1; i <= 18; i++)
+        {
+            actionMaster.Bowl(1);
+        }
+        actionMaster.Bowl(10);
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+    }
+    [Test]
+    public void T16_Frame10StrikeThen5Then2ReturnsEndGame()
+    {
+        for (int i = 1; i <= 18; i++)
+        {
+            actionMaster.Bowl(1);
+        }
+        actionMaster.Bowl(10);
+        actionMaster.Bowl(5);
+        Assert.AreEqual(endGame, actionMaster.Bowl(2));
     }
 }
