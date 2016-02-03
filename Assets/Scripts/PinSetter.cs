@@ -9,9 +9,13 @@ public class PinSetter : MonoBehaviour
     public GameObject pinSet;
 
     private Ball ball;
+    private int initialPinsStanding = 10;
+    private ActionMaster actionMaster = new ActionMaster();
+    private Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         ball = FindObjectOfType<Ball>();
 
         foreach (Pin pin in FindObjectsOfType<Pin>())
@@ -27,7 +31,6 @@ public class PinSetter : MonoBehaviour
 
     public void RaisePins()
     {
-        Debug.Log("Raising Pins");
         foreach(Pin pin in FindObjectsOfType<Pin>())
         {
             pin.RaiseIfStanding();
@@ -36,7 +39,6 @@ public class PinSetter : MonoBehaviour
 
     public void LowerPins()
     {
-        Debug.Log("Lowering Pins");
         foreach (Pin pin in FindObjectsOfType<Pin>())
         {
             pin.Lower();
@@ -45,8 +47,8 @@ public class PinSetter : MonoBehaviour
 
     public void RenewPins()
     {
-        Debug.Log("Renewing Pins");
         Instantiate(pinSet, new Vector3(0, distanceToRaise, 18.29f), Quaternion.identity);
+        initialPinsStanding = 10;
     }
 
     private int CountStanding()
@@ -74,6 +76,23 @@ public class PinSetter : MonoBehaviour
 
     void SetScore()
     {
+        int standingPins = CountStanding();
+        ActionMaster.Action result = actionMaster.Bowl(initialPinsStanding - standingPins);
+        Debug.Log("Pinfall: " + (initialPinsStanding - standingPins) + " " + result);
+        if (result == ActionMaster.Action.Tidy)
+        {
+            animator.SetTrigger("tidyTrigger");
+        }
+        else if (result == ActionMaster.Action.EndTurn || result == ActionMaster.Action.Reset)
+        {
+            animator.SetTrigger("resetTrigger");
+        }
+        // TODO: Need to write the code to handle this!
+        else if (result == ActionMaster.Action.EndGame)
+        {
+            throw new UnityException("Not sure how to handle this yet!");
+        }
+        initialPinsStanding = standingPins;
         standingDisplay.color = Color.green;
         ball.Reset();
     }
