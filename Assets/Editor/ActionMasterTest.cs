@@ -169,4 +169,24 @@ public class ActionMasterTest
         actionMaster.Bowl(5);
         Assert.AreEqual(endGame, actionMaster.Bowl(2));
     }
+    [Test]
+    public void T17_NathansTest()
+    {
+        actionMaster.Bowl(0);
+        actionMaster.Bowl(10);
+        actionMaster.Bowl(5);
+        Assert.AreEqual(endTurn, actionMaster.Bowl(1));
+    }
+    [Test]
+    public void T18_Dondi10thFrameTurkeyTest()
+    {
+        int[] rolls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        foreach (int roll in rolls)
+        {
+            actionMaster.Bowl(roll);
+        }
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(reset, actionMaster.Bowl(10));
+        Assert.AreEqual(endGame, actionMaster.Bowl(10));
+    }
 }
