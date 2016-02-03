@@ -912,6 +912,7 @@ GameObject:
   - 65: {fileID: 1053822638}
   - 95: {fileID: 1053822641}
   - 114: {fileID: 1053822640}
+  - 114: {fileID: 1053822642}
   m_Layer: 0
   m_Name: PinSetter
   m_TagString: Untagged
@@ -982,6 +983,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1053822642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1053822636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aed5f8b8546ae74491e905b1514a693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1206296013
 GameObject:
   m_ObjectHideFlags: 0
