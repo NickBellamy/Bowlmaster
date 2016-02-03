@@ -10,8 +10,8 @@ public class PinSetter : MonoBehaviour
 
     private Ball ball;
     private int initialPinsStanding = 10;
-    private ActionMaster actionMaster = new ActionMaster();
     private Animator animator;
+    private ActionMaster actionMaster = new ActionMaster();
 
     void Start()
     {
@@ -64,14 +64,11 @@ public class PinSetter : MonoBehaviour
         return pinCount;
     }
 
-    // When ball enters Pinsetter, update the UI and invoke SetScore
-    void OnTriggerEnter(Collider col)
+    // When ball exits Pinsetter, update the UI and invoke SetScore
+    public void OutOfPlay()
     {
-        if (col.GetComponent<Ball>())
-        {
-            standingDisplay.color = Color.red;
-            Invoke("SetScore", 3f);
-        }
+        standingDisplay.color = Color.red;
+        Invoke("SetScore", 3f);
     }
 
     void SetScore()

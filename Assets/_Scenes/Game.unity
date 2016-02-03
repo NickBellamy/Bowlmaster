@@ -909,10 +909,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1053822637}
   - 33: {fileID: 1053822639}
-  - 65: {fileID: 1053822638}
   - 95: {fileID: 1053822641}
   - 114: {fileID: 1053822640}
-  - 114: {fileID: 1053822642}
   m_Layer: 0
   m_Name: PinSetter
   m_TagString: Untagged
@@ -933,18 +931,6 @@ Transform:
   - {fileID: 244992395}
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!65 &1053822638
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1053822636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &1053822639
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -983,17 +969,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &1053822642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1053822636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aed5f8b8546ae74491e905b1514a693, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1206296013
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1192,78 @@ Skybox:
   m_GameObject: {fileID: 1277722025}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 36ebb1f81aa054bd49704f3d17f62c4d, type: 2}
+--- !u!1 &1376385555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1376385556}
+  - 33: {fileID: 1376385559}
+  - 65: {fileID: 1376385558}
+  - 114: {fileID: 1376385557}
+  - 114: {fileID: 1376385560}
+  m_Layer: 0
+  m_Name: Lane Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376385556
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376385555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 10}
+  m_LocalScale: {x: 1.05, y: 1.2, z: 20}
+  m_Children: []
+  m_Father: {fileID: 1651624185}
+  m_RootOrder: 0
+--- !u!114 &1376385557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376385555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 549b745630d69f448b7c0713c234932e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1376385558
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376385555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1376385559
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376385555}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1376385560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1376385555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aed5f8b8546ae74491e905b1514a693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1429342071
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1325,7 @@ Transform:
   m_LocalScale: {x: 1.05, y: 0.01, z: 20}
   m_Children: []
   m_Father: {fileID: 1651624185}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &1651624184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1351,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1376385556}
   - {fileID: 1429342075}
   - {fileID: 1984396398}
   m_Father: {fileID: 0}
@@ -1541,7 +1589,7 @@ Transform:
   m_LocalScale: {x: 1.05, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 1651624185}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!65 &1984396399
 BoxCollider:
   m_ObjectHideFlags: 0
