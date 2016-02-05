@@ -34,6 +34,7 @@ public class PinSetter : MonoBehaviour
         foreach(Pin pin in FindObjectsOfType<Pin>())
         {
             pin.RaiseIfStanding();
+            pin.transform.rotation = Quaternion.identity;
         }
     }
 
