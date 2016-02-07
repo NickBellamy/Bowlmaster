@@ -21,8 +21,7 @@ public class ActionMaster
         return returnAction;
     }
 
-    // TODO: Make private later
-	public Action Bowl(int pins)
+	private Action Bowl(int pins)
     {
        bowl++;
 

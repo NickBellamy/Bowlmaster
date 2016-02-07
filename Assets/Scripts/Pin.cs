@@ -30,6 +30,7 @@ public class Pin : MonoBehaviour
         {
             GetComponent<Rigidbody>().useGravity = false;
             transform.Translate(Vector3.up * distanceToRaise);
+            transform.rotation = Quaternion.identity;
         }
     }
 
