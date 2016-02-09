@@ -22,32 +22,54 @@ public class ScoreMaster
     // Return a list of individual frame scores.
     public static List<int> ScoreFrames(List<int> rolls)
     {
-        List<int> frameList = new List<int>();
+        #region Old Code
+        ////The below code works, but the subsequent uncomment code in this method is more elegant!
 
-        for (int i = 2; i <= rolls.Count; i += 2)
+        //List<int> frameList = new List<int>();
+
+        //for (int i = 2; i <= rolls.Count; i += 2)
+        //{
+
+        //    int frameFirstBowl = rolls[i - 2];
+        //    int frameSecondBowl = rolls[i - 1];
+
+        //    // If strike or spare
+        //    if (frameFirstBowl == 10 || frameFirstBowl + frameSecondBowl == 10)
+        //    {
+
+        //        // If next 2 bowls have been bowled
+        //        if (i < rolls.Count)
+        //        {
+        //            frameList.Add(rolls[i - 2] + rolls[i - 1] + rolls[i]);
+        //            i -= frameFirstBowl / 10;
+        //        }
+        //    }
+
+        //    // If all frames not full
+        //    else if (frameList.Count <= 9)
+        //    {
+        //        frameList.Add(frameFirstBowl + frameSecondBowl);
+        //    }
+        //}
+        //return frameList;
+        #endregion
+        List<int> frames = new List<int>();
+
+        for (int i = 1; i < rolls.Count && frames.Count < 10; i += 2)
         {
-
-            int frameFirstBowl = rolls[i - 2];
-            int frameSecondBowl = rolls[i - 1];
-
-            // If strike or spare
-            if (frameFirstBowl == 10 || frameFirstBowl + frameSecondBowl == 10)
+            // If normal open frame
+            if (rolls[i - 1] + rolls[i] < 10)
             {
-
-                // If next 2 bowls have been bowled
-                if (i < rolls.Count)
-                {
-                    frameList.Add(rolls[i - 2] + rolls[i - 1] + rolls[i]);
-                    i -= frameFirstBowl / 10;
-                }
+                frames.Add(rolls[i - 1] + rolls[i]);
             }
 
-            // If all frames not full
-            else if (frameList.Count <= 9)
+            // Else if there are at least 2 bowls ahead
+            else if (rolls.Count - i >= 2)
             {
-                frameList.Add(frameFirstBowl + frameSecondBowl);
+                frames.Add(rolls[i - 1] + rolls[i] + rolls[i + 1]);
+                i -= rolls[i - 1] / 10;
             }
         }
-        return frameList;
+        return frames;
     }
 }
