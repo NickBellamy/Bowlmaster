@@ -55,20 +55,18 @@ public class ScoreMaster
         #endregion
         List<int> frames = new List<int>();
 
-        for (int i = 1; i < rolls.Count && frames.Count < 10; i += 2)
+        for (int i = 1; i < rolls.Count && frames.Count < 10;)
         {
             // If normal open frame
             if (rolls[i - 1] + rolls[i] < 10)
-            {
                 frames.Add(rolls[i - 1] + rolls[i]);
-            }
 
             // Else if there are at least 2 bowls ahead
             else if (rolls.Count - i >= 2)
-            {
                 frames.Add(rolls[i - 1] + rolls[i] + rolls[i + 1]);
-                i -= rolls[i - 1] / 10;
-            }
+
+            // If strike, increment i by one, else increment i by two
+            i += rolls[i - 1] == 10 ? 1 : 2;
         }
         return frames;
     }
