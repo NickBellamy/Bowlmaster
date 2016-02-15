@@ -12,4 +12,9 @@ public class ScoreDisplay : MonoBehaviour
         rollsTexts[0].text = "X";
         frameTexts[0].text = "0";
     }
+
+    public void FillRollCard(List<int> rolls)
+    {
+
+    }
 }
