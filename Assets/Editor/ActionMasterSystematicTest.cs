@@ -5,7 +5,7 @@ using NUnit.Framework;
 using UnityEngine;
 
 [TestFixture]
-public class SystematicTest
+public class ActionMasterSystematicTest
 {
     private ActionMaster.Action endTurn = ActionMaster.Action.EndTurn;
     private ActionMaster.Action tidy = ActionMaster.Action.Tidy;

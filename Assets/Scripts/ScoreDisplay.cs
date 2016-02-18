@@ -5,16 +5,53 @@ using System.Collections.Generic;
 
 public class ScoreDisplay : MonoBehaviour 
 {
-    public Text[] rollsTexts, frameTexts;
+    public Text[] rollTexts, frameTexts;
 
-    void Start()
+    public void FillRolls(List<int> rolls)
     {
-        rollsTexts[0].text = "X";
-        frameTexts[0].text = "0";
+        string scoresString = FormatRolls(rolls);
+        for (int i = 0; i < scoresString.Length; i++)
+        {
+            rollTexts[i].text = scoresString[i].ToString();
+        }
     }
 
-    public void FillRollCard(List<int> rolls)
+    public void FillFrames(List<int> frames)
     {
+        for (int i = 0; i < frames.Count; i++)
+        {
+            frameTexts[i].text = frames[i].ToString();
+        }
+    }
 
+    public static string FormatRolls(List<int> rolls)
+    {
+        string output = "";
+
+        for (int i = 0; i < rolls.Count; i++)
+        {
+            //spare
+            if ((output.Length % 2 == 1 || output.Length == 20) && rolls[i] + rolls[i - 1] == 10)
+            { 
+                output += "/";
+            }
+            //strike
+            else if (rolls[i] == 10)
+            {
+                output += output.Length < 18 ? "X " : "X";
+            }
+            //miss
+            else if (rolls[i] == 0)
+            {
+                output += "-";
+            }
+            //normal
+            else
+            {
+                output += rolls[i].ToString();
+            }
+        }
+
+        return output;
     }
 }
