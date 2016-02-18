@@ -70,6 +70,14 @@ public class ScoreDisplayTest
         Assert.AreEqual(rollsString, ScoreDisplay.FormatRolls(rolls.ToList()));
     }
 
+    [Test]
+    public void T08Bowl0Spare()
+    {
+        int[] rolls = {0, 10};
+        string rollsString = "-/";
+        Assert.AreEqual(rollsString, ScoreDisplay.FormatRolls(rolls.ToList()));
+    }
+
 
     //http://guttertoglory.com/wp-content/uploads/2011/11/score-2011_11_28.png
     [Category("Verification")]
